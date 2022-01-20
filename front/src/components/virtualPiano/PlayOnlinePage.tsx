@@ -51,7 +51,9 @@ export const PlayOnlinePage = () => {
         }
     };
 
-    const keyPress = (keyVal: string) => play(keyVal);
+    const keyPress = (keyVal: string) => {
+        if (keyVal) ws.send(keyVal);
+    };
 
     ws.onmessage = (res) => {
         const keyVal = Object.keys(pianoKeys).find((i) => i === res.data);
