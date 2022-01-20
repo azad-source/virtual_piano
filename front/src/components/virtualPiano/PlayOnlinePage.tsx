@@ -19,7 +19,7 @@ import piano_1_A from '../../audio/key17.webm';
 // import piano_2_Dsh from '../../audio/key23.webm';
 // import piano_2_E from '../../audio/key24.webm';
 
-const ws = new WebSocket('ws://virtual_piano.ru:8080');
+const ws = new WebSocket('ws://virtual_piano:80');
 ws.binaryType = 'arraybuffer';
 
 type keyType = { audioSrc: string; eventKey: string; isBlack?: boolean };

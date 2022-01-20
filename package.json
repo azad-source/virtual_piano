@@ -23,6 +23,8 @@
   "homepage": "https://github.com/azad-source/virtual_piano#readme",
   "dependencies": {
     "classnames": "^2.3.1",
+    "express": "^4.17.2",
+    "http": "^0.0.1-security",
     "ws": "^8.4.2"
   },
   "devDependencies": {

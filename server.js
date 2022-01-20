@@ -1,11 +1,24 @@
+const http = require('http');
+const express = require('express');
 const WebSocket = require('ws');
+const path = require('path');
 
-const server = new WebSocket.Server({ port: 8080 });
+const app = express();
+const server = http.createServer(app);
 
-server.on('connection', (ws) => {
+const wsServer = new WebSocket.Server({ server });
+
+if (process.env.NODE_ENV === 'production') {
+    app.use('/', express.static(path.resolve(__dirname, 'front', 'build')));
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
+
+wsServer.on('connection', (ws) => {
     ws.on('message', (msg) => {
         msg = new TextDecoder('utf-8').decode(msg);
-        server.clients.forEach((client) => {
+        wsServer.clients.forEach((client) => {
             if (client.readyState === WebSocket.OPEN) {
                 client.send(msg);
             }
@@ -13,3 +26,5 @@ server.on('connection', (ws) => {
     });
     ws.send('Добро пожаловать!');
 });
+
+server.listen(80, () => console.log('Server started'));
