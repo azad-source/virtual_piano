@@ -1,24 +1,24 @@
 import * as React from 'react';
-import styles from './PlayOnlinePage.module.scss';
+import styles from './Piano.module.scss';
 import cn from 'classnames';
-import { domain, server_port } from '../../config';
-import piano_1_C from '../../audio/key01.webm';
-import piano_1_Csh from '../../audio/key02.webm';
-import piano_1_D from '../../audio/key03.webm';
-import piano_1_Dsh from '../../audio/key04.webm';
-import piano_1_E from '../../audio/key05.webm';
-import piano_1_F from '../../audio/key06.webm';
-import piano_1_Fsh from '../../audio/key07.webm';
-import piano_1_G from '../../audio/key08.webm';
-import piano_1_Gsh from '../../audio/key09.webm';
-import piano_1_A from '../../audio/key10.webm';
-import piano_1_Ash from '../../audio/key11.webm';
-import piano_1_B from '../../audio/key12.webm';
-import piano_2_C from '../../audio/key13.webm';
-import piano_2_Csh from '../../audio/key14.webm';
-import piano_2_D from '../../audio/key15.webm';
-import piano_2_Dsh from '../../audio/key16.webm';
-import piano_2_E from '../../audio/key17.webm';
+import { domain, server_port } from 'config';
+import piano_1_C from 'audio/key01.webm';
+import piano_1_Csh from 'audio/key02.webm';
+import piano_1_D from 'audio/key03.webm';
+import piano_1_Dsh from 'audio/key04.webm';
+import piano_1_E from 'audio/key05.webm';
+import piano_1_F from 'audio/key06.webm';
+import piano_1_Fsh from 'audio/key07.webm';
+import piano_1_G from 'audio/key08.webm';
+import piano_1_Gsh from 'audio/key09.webm';
+import piano_1_A from 'audio/key10.webm';
+import piano_1_Ash from 'audio/key11.webm';
+import piano_1_B from 'audio/key12.webm';
+import piano_2_C from 'audio/key13.webm';
+import piano_2_Csh from 'audio/key14.webm';
+import piano_2_D from 'audio/key15.webm';
+import piano_2_Dsh from 'audio/key16.webm';
+import piano_2_E from 'audio/key17.webm';
 
 const ws = new WebSocket(`ws://${domain}:${server_port}`);
 ws.binaryType = 'arraybuffer';
@@ -47,7 +47,7 @@ const pianoKeys: Record<string, keyType> = {
 
 const isBlackKey = (key: string): boolean => key.includes('sh');
 
-export const PlayOnlinePage = () => {
+export const Piano = () => {
     let blackPos: number = 0;
 
     const play = (keyVal: string | undefined) => {
