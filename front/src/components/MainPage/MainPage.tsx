@@ -5,7 +5,7 @@ import { Piano } from 'components/Piano/Piano';
 
 export const MainPage = () => {
     return (
-        <div>
+        <div className={styles.root}>
             <Piano />
         </div>
     );
