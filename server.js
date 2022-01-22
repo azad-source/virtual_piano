@@ -5,8 +5,8 @@ const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
-
 const wsServer = new WebSocket.Server({ server });
+const port = 80;
 
 if (process.env.NODE_ENV === 'production') {
     app.use('/', express.static(path.resolve(__dirname, 'front', 'build')));
@@ -27,4 +27,4 @@ wsServer.on('connection', (ws) => {
     ws.send('Добро пожаловать!');
 });
 
-server.listen(80, () => console.log('Server started'));
+server.listen(port, () => console.log('Server started'));
